@@ -1,0 +1,78 @@
+/*
+Theme Name:twentytwenty-child
+Template:twentytwenty
+*/
+$breakpoints:(
+    sp:"screen and (max-width:620px)",
+    tablet:"screen and (max-width:960px)",
+);
+@mixin media($breakpoint){
+    @media #{map-get($breakpoints,$breakpoint)}{
+        @content;
+    }
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.search{
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+    @include media(sp){
+        display: block;
+    }
+    &__map{
+        width: 40%;
+        img{
+            width: 100%;
+        }
+        @include media(sp){
+            width: 80%;
+            margin: auto;
+        }
+    }
+    &__select{
+        width: 40%;
+        margin-left: 50px;
+        @include media(sp){
+            width: 80%;
+            margin: auto;
+        }
+        select{
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+            font-size: 40px;
+            @include media(sp){
+                font-size: 20px;
+            }
+        }
+        &-list{
+            display: flex;
+            width: 100%;
+            flex-wrap: wrap;
+            margin: 50px 0 0 0!important;
+            justify-content: flex-start;
+        }
+        &-item{
+            background: #0002;
+            width: 25%;
+            font-size: 24px;
+            text-align: center;
+            list-style: none;
+            border-radius: 10%;
+            &:nth-child(n+4){
+                margin-top: 50px;
+            }
+            &:not(:nth-child(3n+1)){
+                margin-left: 5%;
+            }
+            @include media(sp){
+                font-size: 18px;
+                width: 28%;
+            }
+        }
+    }
+}
